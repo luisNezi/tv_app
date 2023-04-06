@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+
+import '../contants/visual_constants.dart';
+import '../models/serie_model.dart';
+import 'network_image_widget.dart';
+import 'package:flutter_html/flutter_html.dart';
+
+class SerieDetailWidget extends StatefulWidget {
+  const SerieDetailWidget({super.key, required this.serie});
+  final Serie serie;
+  @override
+  State<SerieDetailWidget> createState() => _SerieDetailWidgetState();
+}
+
+class _SerieDetailWidgetState extends State<SerieDetailWidget> {
+  _SerieDetailWidgetState();
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.4,
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              widget.serie.name,
+              style: VisualConstants.mainTheme(context: context)
+                  .primaryTextTheme
+                  .titleLarge,
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 2),
+            ),
+            NetWorkImage(
+              image: widget.serie.image,
+              height: MediaQuery.of(context).size.height * 0.25,
+              width: MediaQuery.of(context).size.height * 0.35,
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 4),
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 4),
+                  child: Html(
+                    data: widget.serie.summary,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
