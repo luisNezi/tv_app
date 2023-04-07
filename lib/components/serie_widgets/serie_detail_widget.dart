@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../contants/visual_constants.dart';
-import '../models/serie_model.dart';
-import 'network_image_widget.dart';
+import '../../contants/visual_constants.dart';
+import '../../models/serie_model.dart';
 import 'package:flutter_html/flutter_html.dart';
+
+import '../commons/network_image_widget.dart';
 
 class SerieDetailWidget extends StatefulWidget {
   const SerieDetailWidget({super.key, required this.serie});

@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:tv_app/contants/episode_constants.dart';
 import 'package:tv_app/contants/visual_constants.dart';
 import 'package:tv_app/models/episode_simple_model.dart';
 
-import '../contants/arguments.dart';
-import '../pages/episode_page.dart';
-import 'network_image_widget.dart';
+import '../../contants/arguments_constants.dart';
+import '../../contants/strings_constants.dart';
+import '../commons/network_image_widget.dart';
 
-class EpisodeWidget extends StatefulWidget {
-  const EpisodeWidget({
+class SerieListEpisodeWidget extends StatefulWidget {
+  const SerieListEpisodeWidget({
     super.key,
     required this.episode,
   });
   final EpisodeSimple episode;
   @override
-  State<EpisodeWidget> createState() => _EpisodeWidgetState();
+  State<SerieListEpisodeWidget> createState() => _SerieListEpisodeWidgetState();
 }
 
-class _EpisodeWidgetState extends State<EpisodeWidget> {
-  _EpisodeWidgetState();
+class _SerieListEpisodeWidgetState extends State<SerieListEpisodeWidget> {
+  _SerieListEpisodeWidgetState();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _EpisodeWidgetState extends State<EpisodeWidget> {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(
         context,
-        EpisodePage.routeName,
+        EpisodeConstants.routeName,
         arguments: EpisodeRouteArguments(
           widget.episode.id,
           widget.episode.name,
@@ -48,7 +49,7 @@ class _EpisodeWidgetState extends State<EpisodeWidget> {
                 Row(
                   children: [
                     Text(
-                      "Title: ",
+                      StringConstants.TitleLabel,
                       style: TextStyle(fontSize: fontSize),
                     ),
                     Text(
@@ -60,8 +61,7 @@ class _EpisodeWidgetState extends State<EpisodeWidget> {
                 Row(
                   children: [
                     Text(
-                      //TODO substituir strings para utilizar os arquivos constants
-                      "Season: ",
+                      StringConstants.SeasonLabel,
                       style: TextStyle(fontSize: fontSize),
                     ),
                     Text(
@@ -70,7 +70,7 @@ class _EpisodeWidgetState extends State<EpisodeWidget> {
                     ),
                     Padding(padding: EdgeInsets.only(left: 5)),
                     Text(
-                      "Number: ",
+                      StringConstants.EpisodeLabel,
                       style: TextStyle(fontSize: fontSize),
                     ),
                     Text(

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import '../contants/visual_constants.dart';
-import '../states/episode_state.dart';
-import 'network_image_widget.dart';
+import 'package:tv_app/contants/strings_constants.dart';
+import '../../contants/visual_constants.dart';
+import '../../states/episode_state.dart';
+import '../commons/network_image_widget.dart';
 
-class EpisodeDetailWidget extends StatefulWidget {
-  const EpisodeDetailWidget({super.key, required this.id});
+class EpisodePageWidget extends StatefulWidget {
+  const EpisodePageWidget({super.key, required this.id});
   final String id;
   @override
-  State<EpisodeDetailWidget> createState() => _EpisodeDetailWidgetState();
+  State<EpisodePageWidget> createState() => _EpisodePageWidgetState();
 }
 
-class _EpisodeDetailWidgetState extends State<EpisodeDetailWidget> {
-  _EpisodeDetailWidgetState();
+class _EpisodePageWidgetState extends State<EpisodePageWidget> {
+  _EpisodePageWidgetState();
 
   EpisodePageState state = EpisodePageState();
 
@@ -35,6 +36,7 @@ class _EpisodeDetailWidgetState extends State<EpisodeDetailWidget> {
         width: MediaQuery.of(context).size.width * 0.95,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             state.getEpisodePageStatus() == EpisodePageStatus.loading
                 ? CircularProgressIndicator()
@@ -50,10 +52,39 @@ class _EpisodeDetailWidgetState extends State<EpisodeDetailWidget> {
                               .primaryTextTheme
                               .titleLarge,
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              StringConstants.SeasonLabel,
+                              style: VisualConstants.mainTheme(context: context)
+                                  .primaryTextTheme
+                                  .titleMedium,
+                            ),
+                            Text(
+                              state.getEpisodeInfo().season.toString(),
+                              style: VisualConstants.mainTheme(context: context)
+                                  .primaryTextTheme
+                                  .titleMedium,
+                            ),
+                            Padding(padding: EdgeInsets.only(left: 10)),
+                            Text(
+                              StringConstants.EpisodeLabel,
+                              style: VisualConstants.mainTheme(context: context)
+                                  .primaryTextTheme
+                                  .titleMedium,
+                            ),
+                            Text(
+                              state.getEpisodeInfo().number.toString(),
+                              style: VisualConstants.mainTheme(context: context)
+                                  .primaryTextTheme
+                                  .titleMedium,
+                            ),
+                          ],
+                        ),
                         Padding(
                           padding: EdgeInsets.only(bottom: 2),
                         ),
-                        //TODO tentar aumentar a imagem, ou mostrar mais informações
                         NetWorkImage(
                           image: state.getEpisodeInfo().image,
                           height: MediaQuery.of(context).size.height * 0.5,

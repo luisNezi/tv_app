@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../contants/strings_constants.dart';
+
 class NetWorkImage extends StatelessWidget {
   const NetWorkImage({super.key, required this.image, this.width, this.height});
   final String image;
@@ -15,7 +17,9 @@ class NetWorkImage extends StatelessWidget {
               height: height ?? MediaQuery.of(context).size.width * 0.3,
             )
           : Container(
-              // Retornar uma imagem padrão para quando não houver imagem
+              child: Image.asset(
+                StringConstants.ImageNotAvilable,
+              ),
               width: width ?? MediaQuery.of(context).size.width * 0.3,
               height: height ?? MediaQuery.of(context).size.width * 0.3,
             ),

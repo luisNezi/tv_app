@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import '../components/episode_detail_widget.dart';
-import '../contants/arguments.dart';
+import '../components/episode_widgets/episode_page_widget.dart';
+import '../contants/arguments_constants.dart';
 
 class EpisodePage extends StatefulWidget {
   const EpisodePage({super.key});
-  static const routeName = '/episode';
 
   @override
   State<EpisodePage> createState() => _EpisodePageState();
@@ -13,6 +12,7 @@ class EpisodePage extends StatefulWidget {
 class _EpisodePageState extends State<EpisodePage> {
   @override
   Widget build(BuildContext context) {
+    //Parameter pass thru args (pushnamed)
     final EpisodeRouteArguments? args =
         ModalRoute.of(context)?.settings.arguments as EpisodeRouteArguments?;
     String? episodeId = args?.episodeId ?? "";
@@ -27,7 +27,7 @@ class _EpisodePageState extends State<EpisodePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              child: EpisodeDetailWidget(id: episodeId),
+              child: EpisodePageWidget(id: episodeId),
             )
           ],
         ),

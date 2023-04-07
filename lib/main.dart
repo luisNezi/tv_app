@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tv_app/contants/episode_constants.dart';
+import 'package:tv_app/contants/series_constants.dart';
+import 'package:tv_app/contants/strings_constants.dart';
 import 'package:tv_app/pages/episode_page.dart';
 import 'package:tv_app/pages/serie_page.dart';
 
@@ -13,47 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tv App',
+      title: StringConstants.InitialPageTitle,
       routes: {
-        '/episode': (context) => EpisodePage(),
+        //Passing Series id hardcoded for now, change it in future implementations
+        SeriesConstants.routeName: (context) => SeriePage(
+              serieId: StringConstants.serieId,
+            ),
+        EpisodeConstants.routeName: (context) => EpisodePage(),
       },
       theme: VisualConstants.mainTheme(),
-      home: const MyHomePage(title: 'Tv App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(
-                  top: 10,
-                ),
-                //TODO usar rota "/"
-                child: SeriePage(),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

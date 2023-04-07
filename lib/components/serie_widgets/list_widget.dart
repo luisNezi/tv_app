@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tv_app/models/episode_simple_model.dart';
 
-import 'episode_widget.dart';
+import 'serie_list_episode_widget.dart';
 
 class EpisodeListViewHome extends StatelessWidget {
   const EpisodeListViewHome({super.key, required this.episodesList});
@@ -16,7 +16,7 @@ class EpisodeListViewHome extends StatelessWidget {
         shrinkWrap: true,
         itemCount: episodesList.length,
         itemBuilder: (BuildContext context, int index) {
-          return EpisodeWidget(
+          return SerieListEpisodeWidget(
             episode: episodesList[index],
           );
         },
