@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contants/visual_constants.dart';
+import '../../constants/visual_constants.dart';
 import '../../models/serie_model.dart';
 import 'package:flutter_html/flutter_html.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tv_app/components/serie_widgets/serie_page_widget.dart';
-import 'package:tv_app/contants/strings_constants.dart';
+import 'package:tv_app/constants/strings_constants.dart';
 import 'package:tv_app/states/serie_state.dart';
 
 class SeriePage extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-import '../contants/episode_constants.dart';
+import '../constants/episode_constants.dart';
 import '../models/episode_detail_model.dart';
 
 class EpisodeServ {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tv_app/contants/episode_constants.dart';
-import 'package:tv_app/contants/series_constants.dart';
-import 'package:tv_app/contants/strings_constants.dart';
+import 'package:tv_app/constants/episode_constants.dart';
+import 'package:tv_app/constants/series_constants.dart';
+import 'package:tv_app/constants/strings_constants.dart';
 import 'package:tv_app/pages/episode_page.dart';
 import 'package:tv_app/pages/serie_page.dart';
 
-import 'contants/visual_constants.dart';
+import 'constants/visual_constants.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tv_app/contants/episode_constants.dart';
-import 'package:tv_app/contants/visual_constants.dart';
+import 'package:tv_app/constants/episode_constants.dart';
+import 'package:tv_app/constants/visual_constants.dart';
 import 'package:tv_app/models/episode_simple_model.dart';
 
-import '../../contants/arguments_constants.dart';
-import '../../contants/strings_constants.dart';
+import '../../constants/arguments_constants.dart';
+import '../../constants/strings_constants.dart';
 import '../commons/network_image_widget.dart';
 
 class SerieListEpisodeWidget extends StatefulWidget {

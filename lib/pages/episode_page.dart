@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/episode_widgets/episode_page_widget.dart';
-import '../contants/arguments_constants.dart';
+import '../constants/arguments_constants.dart';
 
 class EpisodePage extends StatefulWidget {
   const EpisodePage({super.key});

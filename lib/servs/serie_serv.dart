@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-import '../contants/series_constants.dart';
+import '../constants/series_constants.dart';
 import '../models/episode_simple_model.dart';
 import '../models/serie_model.dart';
 

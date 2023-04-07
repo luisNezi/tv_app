@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:tv_app/contants/strings_constants.dart';
-import '../../contants/visual_constants.dart';
+import 'package:tv_app/constants/strings_constants.dart';
+import '../../constants/visual_constants.dart';
 import '../../states/episode_state.dart';
 import '../commons/network_image_widget.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contants/strings_constants.dart';
+import '../../constants/strings_constants.dart';
 
 class NetWorkImage extends StatelessWidget {
   const NetWorkImage({super.key, required this.image, this.width, this.height});
