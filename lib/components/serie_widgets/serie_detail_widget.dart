@@ -41,7 +41,7 @@ class _SerieDetailWidgetState extends State<SerieDetailWidget> {
             ),
             Container(
               padding: EdgeInsets.only(top: 4),
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.09,
               child: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(bottom: 4),

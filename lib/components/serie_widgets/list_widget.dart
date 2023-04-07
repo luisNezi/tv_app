@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tv_app/models/episode_simple_model.dart';
 
+import '../../models/serie_model.dart';
 import 'serie_list_episode_widget.dart';
 
 class EpisodeListViewHome extends StatelessWidget {
-  const EpisodeListViewHome({super.key, required this.episodesList});
-  final List<EpisodeSimple> episodesList;
+  const EpisodeListViewHome({super.key, required this.serie});
+  final Serie serie;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,10 +14,11 @@ class EpisodeListViewHome extends StatelessWidget {
         scrollDirection: Axis.vertical,
         reverse: false,
         shrinkWrap: true,
-        itemCount: episodesList.length,
+        itemCount: serie.episodeList.length,
         itemBuilder: (BuildContext context, int index) {
           return SerieListEpisodeWidget(
-            episode: episodesList[index],
+            episode: serie.episodeList[index],
+            serie: serie,
           );
         },
       ),

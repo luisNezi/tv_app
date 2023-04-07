@@ -37,7 +37,7 @@ class _SeriePageWidgetState extends State<SeriePageWidget> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 2)),
                 EpisodeListViewHome(
-                  episodesList: state.getSerieInfo().episodeList,
+                  serie: state.getSerieInfo(),
                 ),
               ],
             ),

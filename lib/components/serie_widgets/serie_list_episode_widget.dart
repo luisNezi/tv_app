@@ -5,14 +5,17 @@ import 'package:tv_app/models/episode_simple_model.dart';
 
 import '../../constants/arguments_constants.dart';
 import '../../constants/strings_constants.dart';
+import '../../models/serie_model.dart';
 import '../commons/network_image_widget.dart';
 
 class SerieListEpisodeWidget extends StatefulWidget {
   const SerieListEpisodeWidget({
     super.key,
     required this.episode,
+    required this.serie,
   });
   final EpisodeSimple episode;
+  final Serie serie;
   @override
   State<SerieListEpisodeWidget> createState() => _SerieListEpisodeWidgetState();
 }
@@ -33,7 +36,7 @@ class _SerieListEpisodeWidgetState extends State<SerieListEpisodeWidget> {
         EpisodeConstants.routeName,
         arguments: EpisodeRouteArguments(
           widget.episode.id,
-          widget.episode.name,
+          widget.serie.name,
         ),
       ),
       child: Card(

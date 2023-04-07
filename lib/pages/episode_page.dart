@@ -16,11 +16,11 @@ class _EpisodePageState extends State<EpisodePage> {
     final EpisodeRouteArguments? args =
         ModalRoute.of(context)?.settings.arguments as EpisodeRouteArguments?;
     String? episodeId = args?.episodeId ?? "";
-    String? episodeName = args?.episodeName ?? "";
+    String? serieName = args?.serieName ?? "";
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(episodeName),
+        title: Text(serieName),
       ),
       body: Center(
         child: Column(
