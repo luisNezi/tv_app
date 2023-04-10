@@ -51,9 +51,9 @@ class _EpisodePageWidgetState extends State<EpisodePageWidget> {
                           children: [
                             Text(
                               state.getEpisodeInfo().name,
-                              style: VisualConstants.mainTheme(context: context)
-                                  .primaryTextTheme
-                                  .titleLarge,
+                              style: VisualConstants.mainTheme(
+                                context: context,
+                              ).primaryTextTheme.titleLarge,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,31 +61,27 @@ class _EpisodePageWidgetState extends State<EpisodePageWidget> {
                                 Text(
                                   StringConstants.SeasonLabel,
                                   style: VisualConstants.mainTheme(
-                                          context: context)
-                                      .primaryTextTheme
-                                      .titleMedium,
+                                    context: context,
+                                  ).primaryTextTheme.titleMedium,
                                 ),
                                 Text(
                                   state.getEpisodeInfo().season.toString(),
                                   style: VisualConstants.mainTheme(
-                                          context: context)
-                                      .primaryTextTheme
-                                      .titleMedium,
+                                    context: context,
+                                  ).primaryTextTheme.titleMedium,
                                 ),
                                 Padding(padding: EdgeInsets.only(left: 10)),
                                 Text(
                                   StringConstants.EpisodeLabel,
                                   style: VisualConstants.mainTheme(
-                                          context: context)
-                                      .primaryTextTheme
-                                      .titleMedium,
+                                    context: context,
+                                  ).primaryTextTheme.titleMedium,
                                 ),
                                 Text(
                                   state.getEpisodeInfo().number.toString(),
                                   style: VisualConstants.mainTheme(
-                                          context: context)
-                                      .primaryTextTheme
-                                      .titleMedium,
+                                    context: context,
+                                  ).primaryTextTheme.titleMedium,
                                 ),
                               ],
                             ),
@@ -94,39 +90,42 @@ class _EpisodePageWidgetState extends State<EpisodePageWidget> {
                             ),
                             NetWorkImage(
                               image: state.getEpisodeInfo().image,
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              width: MediaQuery.of(context).size.height * 0.5,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              width: MediaQuery.of(context).size.height * 0.3,
                             ),
                             Container(
                               padding: EdgeInsets.only(top: 4),
-                              height: MediaQuery.of(context).size.height * 0.2,
                               child: SingleChildScrollView(
-                                child: Container(
-                                  padding: EdgeInsets.only(bottom: 4),
-                                  child: Html(
-                                    data: state.getEpisodeInfo().summary,
-                                    style: {
-                                      "p": Style(
-                                        fontSize: FontSize(
-                                          VisualConstants.isWeb(context)
-                                              ? MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.01
-                                              : VisualConstants.isTablet(
-                                                      context)
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(bottom: 4),
+                                      child: Html(
+                                        data: state.getEpisodeInfo().summary,
+                                        style: {
+                                          "p": Style(
+                                            fontSize: FontSize(
+                                              VisualConstants.isWeb(context)
                                                   ? MediaQuery.of(context)
                                                           .size
                                                           .width *
-                                                      0.02
-                                                  : MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.03,
-                                        ),
+                                                      0.01
+                                                  : VisualConstants.isTablet(
+                                                          context)
+                                                      ? MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.02
+                                                      : MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.04,
+                                            ),
+                                          ),
+                                        },
                                       ),
-                                    },
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),

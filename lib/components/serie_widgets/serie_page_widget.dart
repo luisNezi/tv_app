@@ -34,6 +34,7 @@ class _SeriePageWidgetState extends State<SeriePageWidget> {
           child: state.getSeriePageStatus() == SeriePageStatus.loading
               ? const CircularProgressIndicator()
               : Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SerieDetailWidget(
                       serie: state.getSerieInfo(),
