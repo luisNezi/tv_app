@@ -14,7 +14,7 @@ class VisualConstants {
                   ? MediaQuery.of(context).size.width * 0.015
                   : VisualConstants.isTablet(context)
                       ? MediaQuery.of(context).size.width * 0.025
-                      : MediaQuery.of(context).size.width * 0.035)
+                      : MediaQuery.of(context).size.width * 0.045)
               : 20,
         ),
         titleMedium: TextStyle(
@@ -25,7 +25,7 @@ class VisualConstants {
                   ? MediaQuery.of(context).size.width * 0.012
                   : VisualConstants.isTablet(context)
                       ? MediaQuery.of(context).size.width * 0.022
-                      : MediaQuery.of(context).size.width * 0.03)
+                      : MediaQuery.of(context).size.width * 0.04)
               : 18,
         ),
       ),

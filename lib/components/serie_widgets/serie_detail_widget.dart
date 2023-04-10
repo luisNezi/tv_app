@@ -41,11 +41,24 @@ class _SerieDetailWidgetState extends State<SerieDetailWidget> {
             ),
             Container(
               padding: EdgeInsets.only(top: 4),
-              height: MediaQuery.of(context).size.height * 0.09,
+              height: VisualConstants.isMobile(context)
+                  ? MediaQuery.of(context).size.height * 0.11
+                  : MediaQuery.of(context).size.height * 0.08,
               child: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(bottom: 4),
                   child: Html(
+                    style: {
+                      "p": Style(
+                        fontSize: FontSize(
+                          VisualConstants.isWeb(context)
+                              ? MediaQuery.of(context).size.width * 0.01
+                              : VisualConstants.isTablet(context)
+                                  ? MediaQuery.of(context).size.width * 0.02
+                                  : MediaQuery.of(context).size.width * 0.04,
+                        ),
+                      ),
+                    },
                     data: widget.serie.summary,
                   ),
                 ),

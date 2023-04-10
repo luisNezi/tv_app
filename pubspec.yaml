@@ -34,6 +34,9 @@ dependencies:
   http: ^0.13.5
   #to run the summaries we get from the api
   flutter_html: ^2.2.1
+  # to state control
+  get: ^4.6.5
+  
   flutter:
     sdk: flutter
 
