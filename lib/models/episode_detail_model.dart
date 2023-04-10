@@ -47,7 +47,7 @@ class EpisodeDetail extends Equatable {
       name: json['name'] as String,
       number: json['number'] as int,
       season: (json['season']) ?? 0,
-      summary: (json['summary']),
+      summary: (json['summary']) ?? "",
     );
   }
 

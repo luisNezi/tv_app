@@ -1,35 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../components/episode_widgets/episode_page_widget.dart';
-import '../constants/arguments_constants.dart';
+import '../states/episode_state.dart';
 
-class EpisodePage extends StatefulWidget {
-  const EpisodePage({super.key});
-
-  @override
-  State<EpisodePage> createState() => _EpisodePageState();
-}
-
-class _EpisodePageState extends State<EpisodePage> {
+class EpisodePage extends GetView<EpisodePageState> {
   @override
   Widget build(BuildContext context) {
-    //Parameter pass thru args (pushnamed)
-    final EpisodeRouteArguments? args =
-        ModalRoute.of(context)?.settings.arguments as EpisodeRouteArguments?;
-    String? episodeId = args?.episodeId ?? "";
-    String? serieName = args?.serieName ?? "";
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(serieName),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: EpisodePageWidget(id: episodeId),
-            )
-          ],
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: Text(controller.serieName.value),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              controller.pageStatus.value == EpisodePageStatus.loading
+                  ? CircularProgressIndicator()
+                  : Container(
+                      child: EpisodePageWidget(
+                        episode: controller.detail.value,
+                      ),
+                    ),
+            ],
+          ),
         ),
       ),
     );

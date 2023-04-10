@@ -7,7 +7,7 @@ void main() {
     () async {
       final seriePageState = EpisodePageState();
       await seriePageState.reachEpisodeInfo(id: "1");
-      expect(seriePageState.getEpisodeInfo().id, "1");
+      expect(seriePageState.detail.value.id, "1");
     },
   );
 }

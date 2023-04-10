@@ -1,8 +1,10 @@
 import 'dart:async';
 
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:tv_app/models/episode_detail_model.dart';
+import 'package:get/get.dart';
 import 'package:tv_app/servs/episode_serv.dart';
+
+import '../constants/arguments_constants.dart';
+import '../models/episode_detail_model.dart';
 
 enum EpisodePageStatus {
   idle,
@@ -11,26 +13,39 @@ enum EpisodePageStatus {
 }
 
 class EpisodePageState extends GetxController {
-  EpisodePageStatus _pageStatus = EpisodePageStatus.idle;
-  EpisodeDetail _detail = EpisodeDetail.initial();
+  final pageStatus = EpisodePageStatus.idle.obs;
+  final detail = EpisodeDetail.initial().obs;
+  final serieName = "".obs;
+  EpisodeRouteArguments argumentData = Get.arguments;
+
+  @override
+  void onInit() {
+    reachEpisodeInfo(id: argumentData.episodeId);
+    super.onInit();
+  }
+
   Future<void> reachEpisodeInfo({required String id}) async {
-    _pageStatus = EpisodePageStatus.loading;
+    updatePageStatus(EpisodePageStatus.loading);
     try {
-      _detail = await EpisodeServ.reachEpisodeInfoServ(id: id);
-      _pageStatus = EpisodePageStatus.idle;
+      updateDetail(await EpisodeServ.reachEpisodeInfoServ(id: id));
+      updatePageStatus(EpisodePageStatus.idle);
     } catch (e) {
-      _pageStatus = EpisodePageStatus.error;
+      updatePageStatus(EpisodePageStatus.error);
       print(e);
     }
     update();
     return;
   }
 
-  EpisodePageStatus getEpisodePageStatus() {
-    return _pageStatus;
+  updatePageStatus(EpisodePageStatus newValue) {
+    pageStatus(newValue);
   }
 
-  EpisodeDetail getEpisodeInfo() {
-    return _detail;
+  updateDetail(EpisodeDetail newValue) {
+    detail(newValue);
+  }
+
+  updateSerieName(String newValue) {
+    serieName(newValue);
   }
 }

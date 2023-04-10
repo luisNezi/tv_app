@@ -6,9 +6,8 @@ void main() {
   test(
     'episode id should be the same as passed',
     () async {
-      final seriePageState = SeriePageState();
-      await seriePageState.reachSerieInfo(id: StringConstants.serieId);
-      expect(seriePageState.getSerieInfo().id, StringConstants.serieId);
+      final seriePageState = SeriePageState(serieId: StringConstants.serieId);
+      expect(seriePageState.serie.value.id, StringConstants.serieId);
     },
   );
 }

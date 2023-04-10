@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tv_app/constants/episode_constants.dart';
 import 'package:tv_app/constants/visual_constants.dart';
 import 'package:tv_app/models/episode_simple_model.dart';
@@ -31,8 +32,7 @@ class _SerieListEpisodeWidgetState extends State<SerieListEpisodeWidget> {
             ? MediaQuery.of(context).size.width * 0.02
             : MediaQuery.of(context).size.width * 0.03;
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(
-        context,
+      onTap: () => Get.toNamed(
         EpisodeConstants.routeName,
         arguments: EpisodeRouteArguments(
           widget.episode.id,

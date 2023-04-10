@@ -6,10 +6,9 @@ class EpisodeRouteArguments {
 }
 
 class SerieRouteArguments {
-  // For future implementation, pass the serieId by pushNamed parameters
-  final String SerieId;
+  final String serieId;
 
   SerieRouteArguments(
-    this.SerieId,
+    this.serieId,
   );
 }
