@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tv_app/components/serie_widgets/serie_detail_widget.dart';
-
 import '../../states/serie_state.dart';
 import 'list_widget.dart';
 
@@ -13,7 +13,8 @@ class SeriePageWidget extends StatefulWidget {
 }
 
 class _SeriePageWidgetState extends State<SeriePageWidget> {
-  SeriePageState state = SeriePageState();
+  SeriePageState state = Get.put(SeriePageState());
+
   Future<void> getInfo() async {
     await state.reachSerieInfo(id: widget.serieId);
     setState(() {});
@@ -27,20 +28,24 @@ class _SeriePageWidgetState extends State<SeriePageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: state.getSeriePageStatus() == SeriePageStatus.loading
-          ? const CircularProgressIndicator()
-          : Column(
-              children: [
-                SerieDetailWidget(
-                  serie: state.getSerieInfo(),
+    return GetBuilder<SeriePageState>(
+      builder: (_) {
+        return Center(
+          child: state.getSeriePageStatus() == SeriePageStatus.loading
+              ? const CircularProgressIndicator()
+              : Column(
+                  children: [
+                    SerieDetailWidget(
+                      serie: state.getSerieInfo(),
+                    ),
+                    Padding(padding: EdgeInsets.only(bottom: 2)),
+                    EpisodeListViewHome(
+                      serie: state.getSerieInfo(),
+                    ),
+                  ],
                 ),
-                Padding(padding: EdgeInsets.only(bottom: 2)),
-                EpisodeListViewHome(
-                  serie: state.getSerieInfo(),
-                ),
-              ],
-            ),
+        );
+      },
     );
   }
 }

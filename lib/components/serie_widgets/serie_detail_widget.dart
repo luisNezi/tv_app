@@ -46,6 +46,17 @@ class _SerieDetailWidgetState extends State<SerieDetailWidget> {
                 child: Container(
                   padding: EdgeInsets.only(bottom: 4),
                   child: Html(
+                    style: {
+                      "p": Style(
+                        fontSize: FontSize(
+                          VisualConstants.isWeb(context)
+                              ? MediaQuery.of(context).size.width * 0.01
+                              : VisualConstants.isTablet(context)
+                                  ? MediaQuery.of(context).size.width * 0.02
+                                  : MediaQuery.of(context).size.width * 0.03,
+                        ),
+                      ),
+                    },
                     data: widget.serie.summary,
                   ),
                 ),
