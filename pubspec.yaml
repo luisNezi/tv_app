@@ -36,6 +36,7 @@ dependencies:
   flutter_html: ^2.2.1
   # to state control
   get: ^4.6.5
+  
   flutter:
     sdk: flutter
 
