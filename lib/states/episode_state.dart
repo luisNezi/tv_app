@@ -16,7 +16,8 @@ class EpisodePageState extends GetxController {
   final pageStatus = EpisodePageStatus.idle.obs;
   final detail = EpisodeDetail.initial().obs;
   final serieName = "".obs;
-  EpisodeRouteArguments argumentData = Get.arguments;
+  EpisodeRouteArguments argumentData =
+      Get.arguments ?? EpisodeRouteArguments("", "");
 
   @override
   void onInit() {
