@@ -9,19 +9,18 @@ class SeriePageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SerieDetailWidget(
-            serie: serie,
-          ),
-          Padding(padding: EdgeInsets.only(bottom: 2)),
-          EpisodeListViewHome(
-            serie: serie,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SerieDetailWidget(
+          serie: serie,
+        ),
+        Padding(padding: EdgeInsets.only(bottom: 2)),
+        EpisodeListViewHome(
+          serie: serie,
+        ),
+      ],
     );
   }
 }

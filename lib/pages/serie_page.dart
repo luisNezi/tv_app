@@ -9,28 +9,18 @@ class SeriePage extends GetView<SeriePageState> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Scaffold(
-        appBar: AppBar(
-          title: Text(StringConstants.InitialPageTitle),
-        ),
-        body: Center(
-          child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 10,
-                  ),
-                  child: controller.pageStatus.value == SeriePageStatus.loading
-                      ? CircularProgressIndicator()
-                      : SeriePageWidget(
-                          serie: controller.serie.value,
-                        ),
-                ),
-              ],
-            ),
+      () => Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(StringConstants.InitialPageTitle),
           ),
+          body: controller.pageStatus.value == SeriePageStatus.loading
+              ? Center(child: CircularProgressIndicator())
+              : SeriePageWidget(
+                  serie: controller.serie.value,
+                ),
         ),
       ),
     );
