@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
+import 'package:get/get.dart';
 import '../models/serie_model.dart';
 import '../servs/serie_serv.dart';
 
@@ -12,30 +11,38 @@ enum SeriePageStatus {
 }
 
 class SeriePageState extends GetxController {
-  SeriePageStatus _pageStatus = SeriePageStatus.idle;
-  Serie _serie = Serie.initial();
+  SeriePageState({required this.serieId});
+  final String serieId;
+  final pageStatus = SeriePageStatus.idle.obs;
+  final serie = Serie.initial().obs;
+  @override
+  void onInit() {
+    reachSerieInfo(id: serieId);
+    super.onInit();
+  }
 
   Future<void> reachSerieInfo({required String id}) async {
-    _pageStatus = SeriePageStatus.loading;
+    updatePageStatus(SeriePageStatus.loading);
     update();
     try {
-      _serie = await SerieServ.reachSerieInfoServ(id: id);
-      _serie.episodeList = await SerieServ.reachSerieEpisodes(id: id);
-      _pageStatus = SeriePageStatus.idle;
+      Serie _temp = await SerieServ.reachSerieInfoServ(id: id);
+      _temp.episodeList = await SerieServ.reachSerieEpisodes(id: id);
+      updateSerie(_temp);
+      updatePageStatus(SeriePageStatus.idle);
       update();
     } catch (e) {
-      _pageStatus = SeriePageStatus.error;
+      updatePageStatus(SeriePageStatus.error);
       print(e);
     }
     update();
     return;
   }
 
-  SeriePageStatus getSeriePageStatus() {
-    return _pageStatus;
+  updatePageStatus(SeriePageStatus newValue) {
+    pageStatus(newValue);
   }
 
-  Serie getSerieInfo() {
-    return _serie;
+  updateSerie(Serie newValue) {
+    serie(newValue);
   }
 }

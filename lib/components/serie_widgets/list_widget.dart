@@ -8,8 +8,7 @@ class EpisodeListViewHome extends StatelessWidget {
   final Serie serie;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.45,
+    return Flexible(
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         reverse: false,
